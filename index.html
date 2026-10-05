@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiosquito</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1>🛒 Kiosquito</h1>
+      <p>Productos, carrito y ventas</p>
+    </div>
+    <button id="btnVentas" class="secondary-btn">📊 Ver ventas</button>
+  </header>
+
+  <main class="container">
+    <section class="products-section">
+      <div class="section-title">
+        <h2>Productos</h2>
+        <span id="productCount"></span>
+      </div>
+      <div id="productsContainer" class="products-grid"></div>
+    </section>
+
+    <aside class="cart">
+      <div class="cart-header">
+        <h2>🛒 Carrito</h2>
+        <span id="cartCount" class="badge">0</span>
+      </div>
+      <div id="cartContainer" class="cart-items">
+        <p class="empty">El carrito está vacío.</p>
+      </div>
+      <div class="cart-footer">
+        <div class="total">
+          <span>Total</span>
+          <strong id="cartTotal">$0</strong>
+        </div>
+        <button id="btnComprar" class="buy-btn" disabled>
+          Avanzar con la compra
+        </button>
+      </div>
+    </aside>
+  </main>
+
+  <div id="paymentModal" class="modal hidden">
+    <div class="modal-content">
+      <button class="close" data-close="paymentModal">×</button>
+      <h2>Confirmar compra</h2>
+      <div class="checkout-summary">
+        <p>Total a pagar</p>
+        <strong id="paymentTotal">$0</strong>
+      </div>
+      <h3>¿Cómo paga el cliente?</h3>
+      <div class="payment-options">
+        <button class="payment-btn" data-payment="efectivo">💵 Efectivo</button>
+        <button class="payment-btn" data-payment="qr">📱 QR</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="salesModal" class="modal hidden">
+    <div class="modal-content sales-modal">
+      <button class="close" data-close="salesModal">×</button>
+      <h2>📊 Ventas realizadas</h2>
+      <div class="sales-cards">
+        <div class="sale-card">
+          <span>💵</span><p>Efectivo</p>
+          <strong id="cashSales">$0</strong>
+          <small id="cashCount">0 ventas</small>
+        </div>
+        <div class="sale-card">
+          <span>📱</span><p>QR</p>
+          <strong id="qrSales">$0</strong>
+          <small id="qrCount">0 ventas</small>
+        </div>
+        <div class="sale-card">
+          <span>🧾</span><p>Total</p>
+          <strong id="totalSales">$0</strong>
+          <small id="totalCount">0 ventas</small>
+        </div>
+      </div>
+      <div class="sales-detail">
+        <h3>Últimas ventas</h3>
+        <div id="salesList"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="successModal" class="modal hidden">
+    <div class="modal-content success-content">
+      <div class="success-icon">✓</div>
+      <h2>¡Venta realizada!</h2>
+      <p id="successMessage"></p>
+      <button id="btnSuccess" class="buy-btn">Continuar</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
